@@ -7,3 +7,9 @@ spring:
     url: jdbc:mysql://localhost:3306/alita?useUnicode=true&serverTimezone=Asia/Shanghai&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=true&allowMultiQueries=true&useSSL=false
     username: root
     password: root
+
+security:
+  anonymous: /test/**,/anon/**,/actuator/**,/druid/**
+  ignoring: /static/**,/images/**
+  loginPage: /login
+  loginProcessingUrl: /login
