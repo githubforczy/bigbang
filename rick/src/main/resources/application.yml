@@ -3,13 +3,22 @@ server:
 
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/alita?useUnicode=true&serverTimezone=Asia/Shanghai&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=true&allowMultiQueries=true&useSSL=false
-    username: root
-    password: root
+    druid:
+      stat-view-servlet:
+        login-username: admin
+        login-password: 123123
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/rick?useUnicode=true&serverTimezone=Asia/Shanghai&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=true&allowMultiQueries=true&useSSL=false
+      username: root
+      password: root
+      filter:
+        stat:
+          enabled: true
 
 security:
   anonymous: /test/**,/anon/**,/actuator/**,/druid/**
   ignoring: /static/**,/images/**
   loginPage: /login
   loginProcessingUrl: /login
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**Mapper.xml
